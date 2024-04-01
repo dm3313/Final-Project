@@ -29,6 +29,7 @@ class Character:
         if damage >= self.health:
             self.health = 0
         else: self.health -= damage
+
         
     #returns name
     def getName(self):
@@ -76,6 +77,7 @@ class Knight(Character):
         damage = 0
         
         hit = False            
+
         
         # damage depends on the move and whether it hits
         # if the move doesn't hit, damage = 0
@@ -116,8 +118,6 @@ class Knight(Character):
         return(move)
 
         
-        
-        
 # if the player chooses the dragon opponent, the methods in 
 # this class will be used        
 class Dragon(Character):
@@ -143,6 +143,7 @@ class Dragon(Character):
             return True
         else:
             print("Enemy held their ground! (No damage)")
+
             return False
         
     def flameColumn(self):
@@ -159,8 +160,7 @@ class Dragon(Character):
             return True
         else:
             print("The dragon missed! (0 damage)")
-            return False
-    
+            return False    
     def chooseMove(self,move):
         
         damage = 0
