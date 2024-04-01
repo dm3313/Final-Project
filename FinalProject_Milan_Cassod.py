@@ -376,12 +376,12 @@ def main():
         
         if not villain.stillAlive():
             time.sleep(1)
-            print(player.getName().upper() + " DEFEATS " + villain.getName().upper())
+            print("\n" + player.getName().upper() + " DEFEATS " + villain.getName().upper())
             print("Congratulations on your victory!")
             gameOn = False
         elif not player.stillAlive():
             time.sleep(1)
-            print(villain.getName().upper() + " DEFEATS " + player.getName().upper())
+            print("\n" + villain.getName().upper() + " DEFEATS " + player.getName().upper())
             print("Better luck next time!")
             gameOn = False
         else:
@@ -413,7 +413,7 @@ def main():
     quitting = False
     
     while quitting == False:
-        q = input("Enter any key to quit.")
+        q = input("\nEnter any key to quit.")
         quitting = True
         
         
