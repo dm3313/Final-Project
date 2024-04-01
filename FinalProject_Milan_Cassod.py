@@ -193,8 +193,8 @@ class Dragon(Character):
     def printMoves(self):
         print("\nChoose a move!")
         print("\n(F)ireball - Your fireball is shortlived, but it always burns! (5 damage)")
-        print("\n(W)ingflap - Your wings hold great power! But be careful: they're hard to aim (15 damage)")
-        print("\n(C)olumn - Your column of fire is big and wondrous...but sometimes the cold doesn't let it ignite (30 damage)")
+        print("(W)ingflap - Your wings hold great power! But be careful: they're hard to aim (15 damage)")
+        print("(C)olumn - Your column of fire is big and wondrous...but sometimes the cold doesn't let it ignite (30 damage)")
         
     def isValidMove(self,move):
         if move.upper() in ["F", "FIREBALL", "W", "WINGFLAP", "C", "COLUMN OF FLAME"]:
@@ -301,9 +301,9 @@ class Wizard(Character):
     def printMoves(self):
         print("\nChoose a move!")
         print("\n(P)oison - Your poison potion is handy, but a bit cliche (6 damage)")
-        print("\n(A)rrows - Your arrow storm might not always hit, but when it does, it hurts! (9 damage)")
-        print("\n(E)arthquake - Your earthquake shakes the world around it...including your opponent (13 damage)")
-        print("\n(H)eal - Heal yourself at the expense of no damage to the opponent. Be careful..your spell doesn't always work (+3 health)")
+        print("(A)rrows - Your arrow storm might not always hit, but when it does, it hurts! (9 damage)")
+        print("(E)arthquake - Your earthquake shakes the world around it...including your opponent (13 damage)")
+        print("(H)eal - Heal yourself at the expense of no damage to the opponent. Be careful..your spell doesn't always work (+3 health)")
         
     def isValidMove(self,move):
         if move.upper() in ["P", "POISON", "A", "ARROWS", "E", "EARTHQUAKE","H","HEAL"]:
@@ -332,21 +332,24 @@ def main():
         heroChoice = input("")
         if heroChoice.upper() in ["K", "KNIGHT"]:
             playerChosen = True
+            print("You are a noble knight!")
             player = Knight(name)
         elif heroChoice.upper() in ["D", "DRAGON"]:
+            print("You are a powerful dragon!")
             playerChosen = True
             player = Dragon(name)
         elif heroChoice.upper() in ["W", "WIZARD"]:
+            print("You are a magical wizard!")
             playerChosen = True
             player = Wizard(name)
             
         
     options = random.randint(1,3)
     if options == 1:
-        print("Your opponent is a blood hungry dragon!")
+        print("Your opponent is a blood-hungry dragon!")
         villain = Dragon("Dragon")
     if options == 2:
-        print("Your opponent is traitorous knight!")
+        print("Your opponent is a traitorous knight!")
         villain = Knight("Knight")
     if options == 3:
         print("Your opponent is a magical wizard!")
@@ -385,9 +388,9 @@ def main():
             time.sleep(1)
             print("\n" + player.getName() + "'s" + " turn!")
             player.printMoves()
-            move = input("What move u want? ")
+            move = input("\nWhat move would you like to make? ")
             while not player.isValidMove(move):
-                move = input("What move would you like to make? ")
+                move = input("\nWhat move would you like to make? ")
             damage = player.chooseMove(move)
             # villain takes damage depending on damage amounts defined in chooseMove
             villain.takeDamage(damage)
@@ -407,7 +410,11 @@ def main():
             villain.printHealth()
             time.sleep(1)
         
-        
+    quitting = False
+    
+    while quitting == False:
+        q = input("Enter any key to quit.")
+        quitting = True
         
         
         
