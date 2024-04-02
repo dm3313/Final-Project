@@ -33,6 +33,7 @@ class Character:
         if damage >= self.health:
             self.health = 0
         else: self.health -= damage
+
         
     #returns name
     def getName(self):
@@ -86,6 +87,7 @@ class Knight(Character):
         damage = 0
         
         hit = False            
+
         
         # This actually executes the move/function
         # damage depends on the move and whether it hits
@@ -230,8 +232,8 @@ class Dragon(Character):
     def printMoves(self):
         print("\nChoose a move!")
         print("\n(F)ireball - Your fireball is shortlived, but it always burns! (5 damage)")
-        print("\n(W)ingflap - Your wings hold great power! But be careful: they're hard to aim (15 damage)")
-        print("\n(C)olumn - Your column of fire is big and wondrous...but sometimes the cold doesn't let it ignite (30 damage)")
+        print("(W)ingflap - Your wings hold great power! But be careful: they're hard to aim (15 damage)")
+        print("(C)olumn - Your column of fire is big and wondrous...but sometimes the cold doesn't let it ignite (30 damage)")
         
     # Checks if move input is one of the accepted dragon moves
     def isValidMove(self,move):
@@ -381,9 +383,9 @@ class Wizard(Character):
     def printMoves(self):
         print("\nChoose a move!")
         print("\n(P)oison - Your poison potion is handy, but a bit cliche (6 damage)")
-        print("\n(A)rrows - Your arrow storm might not always hit, but when it does, it hurts! (9 damage)")
-        print("\n(E)arthquake - Your earthquake shakes the world around it...including your opponent (13 damage)")
-        print("\n(H)eal - Heal yourself at the expense of no damage to the opponent. Be careful..your spell doesn't always work (+3 health)")
+        print("(A)rrows - Your arrow storm might not always hit, but when it does, it hurts! (9 damage)")
+        print("(E)arthquake - Your earthquake shakes the world around it...including your opponent (13 damage)")
+        print("(H)eal - Heal yourself at the expense of no damage to the opponent. Be careful..your spell doesn't always work (+3 health)")
         
     # Checks if a requested move is in the moves for the character
     def isValidMove(self,move):
@@ -558,13 +560,13 @@ def main():
         # If villain is dead
         if not villain.stillAlive():
             time.sleep(1)
-            print(player.getName().upper() + " DEFEATS " + villain.getName().upper())
+            print("\n" + player.getName().upper() + " DEFEATS " + villain.getName().upper())
             print("Congratulations on your victory!")
             gameOn = False
         # If player is dead
         elif not player.stillAlive():
             time.sleep(1)
-            print(villain.getName().upper() + " DEFEATS " + player.getName().upper())
+            print("\n" + villain.getName().upper() + " DEFEATS " + player.getName().upper())
             print("Better luck next time!")
             gameOn = False
         else:
